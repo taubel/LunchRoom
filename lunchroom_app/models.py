@@ -11,7 +11,6 @@ class Room(models.Model):
 
 class User(models.Model):
     name = models.CharField(max_length=100)
-    rooms = models.ManyToManyField(Room)
 
 
 class FoodItem(models.Model):
