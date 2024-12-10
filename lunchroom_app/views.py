@@ -1,3 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Room
+
+
+def room(request):
+    rooms = Room.objects.all()
+    context = {
+        "rooms": rooms
+    }
+    return render(request, "lunchroom_app/index.html", context=context)

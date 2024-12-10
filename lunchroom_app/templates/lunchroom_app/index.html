@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Main Room</title>
+  </head>
+  <body>
+    {% if rooms %}
+        <ul>
+        {% for room in rooms %}
+            <li>{{ room }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No rooms are available.</p>
+    {% endif %}
+  </body>
+</html>
