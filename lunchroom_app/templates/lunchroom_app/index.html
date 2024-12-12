@@ -6,9 +6,14 @@
   </head>
   <body>
     {% if rooms %}
+        <h1>Existing rooms</h1>
         <ul>
         {% for room in rooms %}
-            <li>{{ room.date }}</li>
+            <li>
+              <a href="{% url "room" room.id %}">
+                {{ room.date }}
+              </a>
+            </li>
         {% endfor %}
         </ul>
     {% else %}
