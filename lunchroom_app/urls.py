@@ -1,9 +1,13 @@
 from django.urls import path
 
-from .views import HomeView, RoomView
+from . import views
 
 
+# TODO add buttons to reach room editing views
 urlpatterns = [
-    path('', HomeView.as_view(), name="index"),
-    path('room/<int:pk>/', RoomView.as_view(), name="room"),
+    path('', views.HomeView.as_view(), name="index"),
+    path('rooms/add/', views.RoomCreateView.as_view(), name="room-add"),
+    path('rooms/<int:pk>/update/', views.RoomUpdateView.as_view(), name="room-update"),
+    path('rooms/<int:pk>/delete/', views.RoomDeleteView.as_view(), name="room-delete"),
+    path('rooms/<int:pk>/', views.RoomView.as_view(), name="room-get"),
 ]
