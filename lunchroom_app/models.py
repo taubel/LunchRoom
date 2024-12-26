@@ -10,7 +10,7 @@ class Room(models.Model):
     patron = models.ForeignKey("User", on_delete=models.PROTECT)
 
     def get_absolute_url(self):
-        return reverse("room-detail", kwargs={"pk": self.pk})
+        return reverse("room-get", kwargs={"pk": self.pk})
 
 
 class User(models.Model):

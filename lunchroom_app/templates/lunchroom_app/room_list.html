@@ -19,5 +19,8 @@
     {% else %}
         <p>No rooms are available.</p>
     {% endif %}
+    <button onclick="location.href='{% url "room-add" %}'" type="button">
+      Create new room
+    </button>
   </body>
 </html>
