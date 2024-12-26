@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ object.date }}</title>
+  </head>
+  <body>
+    <p>Are you sure you want to delete this room?</p>
+    <form action="{% url 'room-delete' object.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">
+        Yes
+      </button>
+    </form>
+    <button onclick="location.href='{% url "room-get" object.id %}'" type="button">
+      No
+    </button>
+  </body>
+</html>

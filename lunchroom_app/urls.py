@@ -3,7 +3,6 @@ from django.urls import path
 from . import views
 
 
-# TODO add buttons to reach room editing views
 urlpatterns = [
     path('', views.HomeView.as_view(), name="index"),
     path('rooms/add/', views.RoomCreateView.as_view(), name="room-add"),
