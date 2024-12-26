@@ -8,6 +8,7 @@ class Room(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # TODO decide what to put in 'on_delete'
     patron = models.ForeignKey("User", on_delete=models.PROTECT)
+    users = models.ManyToManyField("User", related_name="room_users")
 
     def get_absolute_url(self):
         return reverse("room-get", kwargs={"pk": self.pk})

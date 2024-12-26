@@ -13,15 +13,22 @@ class HomeView(ListView):
 class RoomView(DetailView):
     model = Room
 
+    def get_context_data(self, **kwargs):
+        users = [user for user in self.get_object().users.all()]
+        return {
+            "object": self.get_object(),
+            "users": users
+            }
+
 
 class RoomCreateView(CreateView):
     model = Room
-    fields = ["patron"]
+    fields = ["patron", "users"]
 
 
 class RoomUpdateView(UpdateView):
     model = Room
-    fields = ["patron"]
+    fields = ["patron", "users"]
 
 
 class RoomDeleteView(DeleteView):

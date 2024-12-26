@@ -5,8 +5,17 @@
     <title>{{ object.date }}</title>
   </head>
   <body>
+    <h1>Details</h1>
     <p>Patron: {{ object.patron.name }}</p>
     <p>{{ object.date }}</p>
+    <h1>Users</h1>
+    <ul>
+      {% for user in users %}
+          <li>
+            <p>{{ user.name }}</p>
+          </li>
+      {% endfor %}
+    </ul>
     <button onclick="location.href='{% url "room-update" object.id %}'" type="button">
       Edit
     </button>
