@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Manage Users</title>
+  </head>
+  <body>
+    {% if object_list %}
+        <h1>Existing users</h1>
+        <ul>
+        {% for user in object_list %}
+            <li>
+                {{ user.name }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No users are available.</p>
+    {% endif %}
+  </body>
+</html>
