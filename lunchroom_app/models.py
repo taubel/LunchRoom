@@ -17,6 +17,9 @@ class Room(models.Model):
 class User(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class FoodItem(models.Model):
     name = models.CharField(max_length=100)
