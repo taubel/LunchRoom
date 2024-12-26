@@ -33,8 +33,27 @@ class RoomUpdateView(UpdateView):
 
 class RoomDeleteView(DeleteView):
     model = Room
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("rooms")
 
 
 class UserListView(ListView):
     model = User
+
+
+class UserDetailView(DetailView):
+    model = User
+
+
+class UserCreateView(CreateView):
+    model = User
+    fields = ["name"]
+
+
+class UserUpdateView(UpdateView):
+    model = User
+    fields = ["name"]
+
+
+class UserDeleteView(DeleteView):
+    model = User
+    success_url = reverse_lazy("users")

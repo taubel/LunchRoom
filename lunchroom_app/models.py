@@ -20,6 +20,9 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("user-get", kwargs={"pk": self.pk})
+
 
 class FoodItem(models.Model):
     name = models.CharField(max_length=100)

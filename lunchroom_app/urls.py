@@ -14,4 +14,8 @@ urlpatterns = [
     path('rooms/<int:pk>/', views.RoomDetailView.as_view(), name="room-get"),
 
     path('users/', views.UserListView.as_view(), name="users"),
+    path('users/add/', views.UserCreateView.as_view(), name="user-add"),
+    path('users/<int:pk>/update/', views.UserUpdateView.as_view(), name="user-update"),
+    path('users/<int:pk>/delete/', views.UserDeleteView.as_view(), name="user-delete"),
+    path('users/<int:pk>/', views.UserDetailView.as_view(), name="user-get"),
 ]
