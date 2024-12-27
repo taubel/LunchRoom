@@ -5,6 +5,8 @@
     <title>{{ object.name }}</title>
   </head>
   <body>
+    <a href="{% url "index" %}"><h1>Lunch Room</h1></a>
+    <hr>
     <h1>Details</h1>
     <p>{{ object.name }}</p>
     <button onclick="location.href='{% url "user-update" object.id %}'" type="button">

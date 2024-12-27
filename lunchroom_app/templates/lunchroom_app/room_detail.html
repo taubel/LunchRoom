@@ -5,6 +5,8 @@
     <title>{{ object.date }}</title>
   </head>
   <body>
+    <a href="{% url "index" %}"><h1>Lunch Room</h1></a>
+    <hr>
     <h1>Details</h1>
     <p>Patron: {{ object.patron.name }}</p>
     <p>{{ object.date }}</p>
