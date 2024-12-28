@@ -32,5 +32,4 @@ class User(models.Model):
 class FoodItem(models.Model):
     name = models.CharField(max_length=100)
     price = models.FloatField()
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
