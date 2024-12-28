@@ -24,5 +24,15 @@
     <button onclick="location.href='{% url "room-delete" object.id %}'" type="button">
       Delete
     </button>
+    <h1>Foods</h1>
+    <ul>
+      {% for food in foods %}
+        <li><p>{{ food.name }}</p></li>
+      {% endfor %}
+    </ul>
+    <!-- TODO pass room id, prefill in form -->
+    <button onclick="location.href='{% url "food-add" %}'" type="button">
+      Add food
+    </button>
   </body>
 </html>

@@ -1,9 +1,11 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, FormView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy, reverse
 
-from .models import Room, User
+from .forms import FoodItemForm
+from .models import Room, User, FoodItem
 
 
 class RoomListView(ListView):
@@ -15,9 +17,11 @@ class RoomDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         users = [user for user in self.get_object().users.all()]
+        foods = [food for food in self.get_object().foods.all()]
         return {
             "object": self.get_object(),
-            "users": users
+            "users": users,
+            "foods": foods,
             }
 
 
@@ -57,3 +61,14 @@ class UserUpdateView(UpdateView):
 class UserDeleteView(DeleteView):
     model = User
     success_url = reverse_lazy("users")
+
+
+def fooditem_add(request):
+    if request.method == "POST":
+        form = FoodItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse_lazy("index"))
+    else:
+        form = FoodItemForm()
+    return render(request, "lunchroom_app/fooditem_form.html", {"form": form})

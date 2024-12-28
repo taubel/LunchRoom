@@ -18,4 +18,6 @@ urlpatterns = [
     path('users/<int:pk>/update/', views.UserUpdateView.as_view(), name="user-update"),
     path('users/<int:pk>/delete/', views.UserDeleteView.as_view(), name="user-delete"),
     path('users/<int:pk>/', views.UserDetailView.as_view(), name="user-get"),
+
+    path('foods/add/', views.fooditem_add, name="food-add"),
 ]
