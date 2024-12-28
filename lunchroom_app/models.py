@@ -8,9 +8,15 @@ class Room(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     # TODO decide what to put in 'on_delete'
     patron = models.ForeignKey("User", on_delete=models.PROTECT)
-    # TODO get users from food items
-    users = models.ManyToManyField("User", related_name="room_users")
     foods = models.ManyToManyField("FoodItem", related_name="room_foods")
+
+    @property
+    def users(self):
+        # TODO return a list of unique names
+        _users = []
+        for food in self.foods.all():
+            _users.append(food.user)
+        return _users
 
     def __str__(self):
         return str(self.date)

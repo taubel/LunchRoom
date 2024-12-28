@@ -16,11 +16,10 @@ class RoomDetailView(DetailView):
     model = Room
 
     def get_context_data(self, **kwargs):
-        users = [user for user in self.get_object().users.all()]
         foods = [food for food in self.get_object().foods.all()]
         return {
             "object": self.get_object(),
-            "users": users,
+            "users": self.get_object().users,
             "foods": foods,
             }
 
