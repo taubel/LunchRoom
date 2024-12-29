@@ -14,7 +14,7 @@ class FoodItemForm(forms.ModelForm):
         food_item = super().save(commit=commit)
 
         if commit:
-            room_id = self.data["room"]
+            room_id = self.cleaned_data["room"].id
             room = models.Room.objects.get(pk=room_id)
             room.foods.add(food_item)
 

@@ -67,7 +67,8 @@ def fooditem_add(request):
         form = FoodItemForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse_lazy("index"))
+            url = reverse_lazy("room-get", kwargs={"pk": form.cleaned_data["room"].id})
+            return HttpResponseRedirect(url)
     else:
         form = FoodItemForm()
     return render(request, "lunchroom_app/fooditem_form.html", {"form": form})
