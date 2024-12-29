@@ -70,5 +70,7 @@ def fooditem_add(request):
             url = reverse_lazy("room-get", kwargs={"pk": form.cleaned_data["room"].id})
             return HttpResponseRedirect(url)
     else:
-        form = FoodItemForm()
+        room_id = request.GET.get("room_id", None)
+        initial = {"room": room_id}
+        form = FoodItemForm(initial=initial)
     return render(request, "lunchroom_app/fooditem_form.html", {"form": form})

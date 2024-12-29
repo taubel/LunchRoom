@@ -30,8 +30,7 @@
         <li><p>{{ food.name }}</p></li>
       {% endfor %}
     </ul>
-    <!-- TODO pass room id, prefill in form -->
-    <button onclick="location.href='{% url "food-add" %}'" type="button">
+    <button onclick="location.href='{% url "food-add" %}?room_id={{ object.id }}'" type="button">
       Add food
     </button>
   </body>
