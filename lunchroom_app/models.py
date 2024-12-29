@@ -12,10 +12,9 @@ class Room(models.Model):
 
     @property
     def users(self):
-        # TODO return a list of unique names
-        _users = []
+        _users = set()
         for food in self.foods.all():
-            _users.append(food.user)
+            _users.add(food.user)
         return _users
 
     def __str__(self):
